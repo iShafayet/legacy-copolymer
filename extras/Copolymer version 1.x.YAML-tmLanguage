@@ -1,0 +1,163 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Copolymer 1x
+scopeName: source.copoly1x
+fileTypes: [copoly]
+uuid: 02e2c8b6-ce42-43ca-9761-a56b5ade6b78
+
+patterns:
+
+- comment: commented-block
+  name: comment.block
+  begin: \###
+  end: \###
+
+- comment: comment
+  name: comment
+  begin: \#
+  end: \n
+
+- comment: quoted string
+  name: string
+  begin: \"
+  end: \"
+  patterns:
+  - name: entity.other.inherited-class
+    begin: \{\{
+    end: \}\}
+
+- comment: tild quoted string / inner text
+  name: keyword.other.unit
+  begin: \`
+  end: \`
+  patterns:
+  - name: entity.other.inherited-class
+    begin: \{\{
+    end: \}\}
+  - name: entity.other.inherited-class
+    begin: \@
+    end: \@
+
+- comment: inline text
+  name: keyword.other.unit
+  begin: \|
+  end: \n
+  patterns:
+  - name: entity.other.inherited-class
+    begin: \{\{
+    end: \}\}
+  - name: entity.other.inherited-class
+    begin: \@
+    end: \@
+
+- comment: \@include
+  name: keyword.other.special-method
+  match: ^(\s)*((\@include\s){1,1})
+
+- comment: \@insert
+  name: keyword.other.special-method
+  match: ^(\s)*((\@insert\s){1,1})
+
+- comment: \@partial
+  name: keyword.other.special-method
+  match: ^(\s)*((\@partial\s){1,1})
+
+- comment: if
+  name: ignore
+  match: ^(\s)*((if\s){1,1})(.*)
+  captures:
+    '2': {name: keyword.control}
+    '4': {name: keyword.operator.setter}
+    
+- comment: else if
+  name: ignore
+  match: ^(\s)*((else if\s){1,1})(.*)
+  captures:
+    '2': {name: keyword.control}
+    '4': {name: keyword.operator.setter}
+
+- comment: else
+  name: ignore
+  match: ^(\s)*((else\s){1,1})(.*)
+  captures:
+    '2': {name: keyword.control}
+    '4': {name: keyword.operator.setter}
+
+
+
+- comment: unless
+  name: ignore
+  match: ^(\s)*((unless\s){1,1})(.*)
+  captures:
+    '2': {name: keyword.control}
+    '4': {name: keyword.operator.setter}
+
+- comment: define
+  name: ignore
+  match: ^(\s)*((define\s){1,1})([a-zA-Z0-9\-\.]+)(\s+)
+  captures:
+    '2': {name: keyword.control}
+    '4': {name: keyword.operator.setter}
+
+- comment: exclude, import
+  name: keyword.control
+  match: ^(\s)*((exclude\s){1,1}|(import\s){1,1})
+
+- comment: bind [expression] as identifier
+  name: ignore
+  match: ^(\s)*(bind)(\s+)(.+)(\s)+(as)(\s)+([a-zA-Z0-9\-\.]+)
+  captures:
+    '2': {name: keyword.control}
+    '4': {name: keyword.operator.setter}
+    '6': {name: keyword.control}
+    '8': {name: constant.character.entity}
+
+- comment: for [identifier] in/of {expression}
+  name: ignore
+  match: ^(\s)*(for)(\s)+([a-zA-Z0-9\-\.]+)(\s)+(in|of)(\s)+(.+)
+  captures:
+    '2': {name: keyword.control}
+    '4': {name: constant.character.entity}
+    '6': {name: keyword.control}
+    '8': {name: keyword.operator.setter}
+
+- comment: for [identifier] , [identifier] in/of {expression}
+  name: ignore
+  match: ^(\s)*(for)(\s)+([a-zA-Z0-9\-\.]+)(\s)*(,)(\s)*([a-zA-Z0-9\-\.]+)(\s)+(in|of)(\s)+(.+)
+  captures:
+    '2': {name: keyword.control}
+    '4': {name: constant.character.entity}
+    '6': {name: keyword.operator.setter}
+    '8': {name: constant.character.entity}
+    '10': {name: keyword.control}
+    '12': {name: keyword.operator.setter}
+
+
+- comment: html element
+  begin: ^(\s)*([a-zA-Z0-9\-]+)
+  beginCaptures:
+    '2': {name: entity.name.type.class}
+  end: \n
+  patterns:
+  - include: $self
+  - match: (\$)([a-zA-Z0-9\-\{\}]+)*
+    captures:
+      '1': {name: markup.list}
+      '2': {name: markup.list}
+  - match: (\.)([a-zA-Z0-9\-\{\}]+)*
+    captures:
+      '1': {name: constant}
+      '2': {name: markup.list}
+  - match: (\%)([a-zA-Z0-9\-\{\}]+)*
+    captures:
+      '1': {name: constant}
+      '2': {name: constant}
+  - match: (\*)([a-zA-Z0-9\-\{\}]+)*
+    captures:
+      '1': {name: constant}
+      '2': {name: constant}
+
+
+
+
+...

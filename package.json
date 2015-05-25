@@ -1,0 +1,32 @@
+{
+  "name": "copolymer",
+  "version": "0.0.3",
+  "description": "An extended set of languages that compiles to css+html5+coffeescript+polymer",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "coffee test/test.coffee"
+  },
+  "author": "Sayem Shafayet <ishafayet@gmail.com> (http://ishafayet.me/)",
+  "license": "MIT",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iShafayet/copolymer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iShafayet/copolymer/issues"
+  },
+  "keywords": [
+    "polymer",
+    "google i/o",
+    "html",
+    "templating",
+    "html5",
+    "copoly"
+  ]
+}
