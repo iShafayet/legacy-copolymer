@@ -6,7 +6,7 @@
   "scripts": {
     "test": "coffee test/test.coffee"
   },
-  "author": "Sayem Shafayet <ishafayet@gmail.com> (http://ishafayet.me/)",
+  "author": "Sayem Shafayet <ishafayet@gmail.com> (https://ishafayet.me/)",
   "license": "MIT",
   "dependencies": {
 
