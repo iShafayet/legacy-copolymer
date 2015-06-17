@@ -24,7 +24,7 @@ class CohtmlElementParser extends GenericParser
   constructor: ()->
     super
     @charset.htmlTag = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-!".split ''
-    @charset.htmlAttributeName = "*%abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-".split ''
+    @charset.htmlAttributeName = "?*%abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-".split ''
     @charset.htmlEmbeddedId = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-".split ''
     @charset.htmlEmbeddedClassName = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-".split ''
 
