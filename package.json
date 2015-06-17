@@ -1,6 +1,6 @@
 {
   "name": "copolymer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An extended set of languages that compiles to css+html5+coffeescript+polymer",
   "main": "index.coffee",
   "scripts": {
